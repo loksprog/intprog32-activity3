@@ -18,14 +18,23 @@ app.get("/", (req, res) => {
   res.send("Hello, World!");
 });
 
+// Define a route for the about page
 app.get("/about", (req, res) => {
   res.send("About us");
 });
 
+// Define a route for the submit page
 app.post("/submit", (req, res) => {
   const data = req.body;
   res.send(`Received: ${JSON.stringify(data)}`);
 });
+
+const items = ['Apple', 'Banana', 'Orange'];
+
+app.get('/items', (req, res) => {
+    res.json(items);
+});
+
 
 // Error Handling middleware
 app.use((err, req, res, next) => {
