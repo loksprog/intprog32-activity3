@@ -6,8 +6,8 @@ const port = 3000;
 app.use(express.static('public'));
 
 // Define a route for the home page
-app.get('/', (req, res) => {
-    res.send('Hello, World!');
+app.get('/about', (req, res) => {
+    res.send('About us');
 });
 
 // Start the server
