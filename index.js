@@ -34,6 +34,12 @@ app.get('/items', (req, res) => {
     res.json(items);
 });
 
+app.post('/items', (req, res) => {
+    const newItem = req.body.item;
+    items.push(newItem);
+    res.json(items);
+});
+
 
 // Error Handling middleware
 app.use((err, req, res, next) => {
