@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const port = 3000;
 
+// Logging Middleware
 app.use((req, res, next) => {
   console.log(`${req.method} ${req.url}`);
   next();
@@ -24,6 +25,12 @@ app.get("/about", (req, res) => {
 app.post("/submit", (req, res) => {
   const data = req.body;
   res.send(`Received: ${JSON.stringify(data)}`);
+});
+
+// Error Handling middleware
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('Something broke!');
 });
 
 // Start the server
